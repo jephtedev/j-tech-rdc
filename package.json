@@ -1,27 +1,28 @@
-// server.js - Point d'entrée de l'infrastructure J-TECH HUB
-require('dotenv').config();
-const express = require('express');
-const mongoose = require('mongoose');
-const cors = require('cors');
-
-const app = express();
-
-// Middleware de base
-app.use(cors());
-app.use(express.json());
-
-// Connexion à la base de données (Sécurisée via variables d'environnement)
-mongoose.connect(process.env.MONGO_URI)
-    .then(() => console.log('Sentinelle J-TECH connectée : Base de données active'))
-    .catch(err => console.error('Erreur Sentinelle :', err));
-
-// Route de test
-app.get('/', (req, res) => {
-    res.json({ message: 'Bienvenue sur l\'API J-TECH HUB' });
-});
-
-// Port d'écoute
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-    console.log(`Serveur J-TECH en ligne sur le port ${PORT}`);
-});
+{
+  "name": "j-tech-hub-api",
+  "version": "1.0.0",
+  "description": "Infrastructure backend sécurisée pour J-TECH HUB - Système intelligent de services",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [
+    "J-TECH",
+    "Services",
+    "Escrow",
+    "Geospatial",
+    "API"
+  ],
+  "author": "Jephté MANWANA",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.3.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
