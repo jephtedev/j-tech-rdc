@@ -1,13 +1,27 @@
-{
-  "name": "j-tech-server",
-  "version": "1.0.0",
-  "description": "Backend API pour J-TECH RDC",
-  "main": "server.js",
-  "dependencies": {
-    "express": "^4.18.2",
-    "mongoose": "^7.0.0",
-    "dotenv": "^16.0.0",
-    "cors": "^2.8.5"
-  }
-}
+// server.js - Point d'entrée de l'infrastructure J-TECH HUB
+require('dotenv').config();
+const express = require('express');
+const mongoose = require('mongoose');
+const cors = require('cors');
 
+const app = express();
+
+// Middleware de base
+app.use(cors());
+app.use(express.json());
+
+// Connexion à la base de données (Sécurisée via variables d'environnement)
+mongoose.connect(process.env.MONGO_URI)
+    .then(() => console.log('Sentinelle J-TECH connectée : Base de données active'))
+    .catch(err => console.error('Erreur Sentinelle :', err));
+
+// Route de test
+app.get('/', (req, res) => {
+    res.json({ message: 'Bienvenue sur l\'API J-TECH HUB' });
+});
+
+// Port d'écoute
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+    console.log(`Serveur J-TECH en ligne sur le port ${PORT}`);
+});
