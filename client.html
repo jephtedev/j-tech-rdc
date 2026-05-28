@@ -1,50 +1,58 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="bg-[#0B0E14]">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J-TECH HUB | Trouver un service</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-[#0B0E14] text-white p-4">
+<body class="text-white p-6 antialiased">
 
-    <div class="mb-6">
-        <p class="text-[10px] uppercase text-slate-500 font-bold">Localisation</p>
-        <p class="text-lg font-black">📍 Kinshasa, Gombe</p>
-    </div>
+    <!-- Localisation -->
+    <header class="mb-8">
+        <p class="text-[10px] uppercase text-slate-500 font-bold tracking-widest">Localisation</p>
+        <p class="text-lg font-black tracking-tight">📍 Kinshasa, Gombe</p>
+    </header>
 
+    <!-- Barre de Recherche -->
     <div class="mb-8">
-        <input type="text" placeholder="Rechercher un service..." class="w-full bg-[#161B22] p-4 rounded-2xl border border-white/10 outline-none focus:border-blue-500">
+        <input type="text" placeholder="Quel service recherchez-vous ?" class="w-full bg-[#161B22] p-4 rounded-2xl border border-white/10 outline-none focus:border-orange-500 transition-colors">
     </div>
 
-    <div class="grid grid-cols-4 gap-3">
-        <div class="bg-[#161B22] p-3 rounded-2xl text-center border border-white/5 hover:border-blue-500 transition">
-            <span class="text-2xl">🧱</span>
-            <p class="text-[9px] mt-2 uppercase font-bold">Maçon</p>
+    <!-- Catégories -->
+    <nav class="grid grid-cols-4 gap-3">
+        <div class="bg-[#161B22] p-4 rounded-2xl text-center border border-white/5 hover:border-orange-500 transition-all cursor-pointer">
+            <span class="text-xl">🧱</span>
+            <p class="text-[9px] mt-2 uppercase font-bold text-slate-300">Maçon</p>
         </div>
-        <div class="bg-[#161B22] p-3 rounded-2xl text-center border border-white/5 hover:border-blue-500 transition">
-            <span class="text-2xl">⚡</span>
-            <p class="text-[9px] mt-2 uppercase font-bold">Élec</p>
+        <div class="bg-[#161B22] p-4 rounded-2xl text-center border border-white/5 hover:border-orange-500 transition-all cursor-pointer">
+            <span class="text-xl">⚡</span>
+            <p class="text-[9px] mt-2 uppercase font-bold text-slate-300">Élec</p>
         </div>
-        <div class="bg-[#161B22] p-3 rounded-2xl text-center border border-white/5 hover:border-blue-500 transition">
-            <span class="text-2xl">🚰</span>
-            <p class="text-[9px] mt-2 uppercase font-bold">Plomb</p>
+        <div class="bg-[#161B22] p-4 rounded-2xl text-center border border-white/5 hover:border-orange-500 transition-all cursor-pointer">
+            <span class="text-xl">🚰</span>
+            <p class="text-[9px] mt-2 uppercase font-bold text-slate-300">Plomb</p>
         </div>
-        <div class="bg-[#161B22] p-3 rounded-2xl text-center border border-white/5 hover:border-blue-500 transition">
-            <span class="text-2xl">🍎</span>
-            <p class="text-[9px] mt-2 uppercase font-bold">Prof</p>
+        <div class="bg-[#161B22] p-4 rounded-2xl text-center border border-white/5 hover:border-orange-500 transition-all cursor-pointer">
+            <span class="text-xl">🍎</span>
+            <p class="text-[9px] mt-2 uppercase font-bold text-slate-300">Prof</p>
         </div>
-    </div>
+    </nav>
 
-    <h2 class="text-sm font-bold mt-8 mb-4 text-slate-400">Techniciens proches</h2>
-    <div class="space-y-4">
-        <div class="bg-[#161B22] p-4 rounded-2xl flex items-center gap-4 border border-white/5">
-            <div class="w-12 h-12 bg-blue-900 rounded-full"></div>
-            <div>
-                <p class="font-bold">Jean le Maçon</p>
-                <p class="text-[10px] text-blue-400">★ 4.9 (120 avis) • 1.2 km</p>
-            </div>
+    <!-- Liste Techniciens -->
+    <section class="mt-8">
+        <h2 class="text-sm font-bold mb-4 text-slate-400">Techniciens proches</h2>
+        <div class="space-y-4">
+            <article class="bg-[#161B22] p-4 rounded-2xl flex items-center gap-4 border border-white/5 hover:border-blue-500 transition-all shadow-lg">
+                <div class="w-12 h-12 bg-blue-600 rounded-full shadow-inner"></div>
+                <div>
+                    <p class="font-bold">Jean le Maçon</p>
+                    <p class="text-[10px] text-blue-400 font-medium">★ 4.9 (120 avis) • 1.2 km</p>
+                </div>
+            </article>
         </div>
-    </div>
+    </section>
 
 </body>
-          </html>
-  
+        </html>
+            
