@@ -1,49 +1,71 @@
 <!DOCTYPE html>
-<html lang="fr" class="bg-[#05060A]">
+<html lang="fr" class="bg-gray-950 text-white">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>J-TECH RDC | Dashboard</title>
+    <title>J-TECH HUB | Écosystème Intelligent</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 32px;
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF6600', // Orange signature J-TECH
+                        darkBg: '#0F172A',
+                        secondary: '#1E293B',
+                    }
+                }
+            }
         }
-        .app-iframe { width: 100%; height: 580px; border: none; }
-    </style>
+    </script>
 </head>
-<body class="p-4 md:p-10 font-sans text-white">
+<body class="font-sans antialiased bg-gray-950">
 
-    <div class="flex justify-between items-center mb-10">
-        <div>
-            <h1 class="text-4xl font-black tracking-tighter">J-TECH <span class="text-blue-500">RDC</span></h1>
-            <p class="text-slate-500 font-medium">Système nerveux des services nationaux</p>
+    <!-- Navbar -->
+    <nav class="flex justify-between items-center px-8 py-6 border-b border-gray-800">
+        <div class="text-2xl font-bold tracking-tight">J-TECH<span class="text-primary">HUB</span></div>
+        <div class="space-x-8 font-medium hidden md:flex items-center">
+            <a href="#" class="hover:text-primary transition">Services</a>
+            <a href="#" class="hover:text-primary transition">Réseau Pro</a>
+            <a href="#" class="hover:text-primary transition">J-TECH PAY</a>
+            <button class="bg-primary px-6 py-2 rounded-full font-semibold transition">Connexion</button>
         </div>
-        <div class="flex gap-4">
-            <div class="px-6 py-2 bg-blue-600 rounded-full text-xs font-bold uppercase tracking-widest shadow-lg shadow-blue-900/20">
-                Mode Architecte : Actif
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-8 py-12">
+        
+        <!-- Hero & Recherche -->
+        <header class="mb-16">
+            <h1 class="text-5xl font-extrabold mb-6">L'excellence professionnelle <br> <span class="text-primary">à portée de main.</span></h1>
+            <div class="bg-secondary p-4 rounded-2xl flex items-center shadow-2xl border border-gray-800 max-w-3xl">
+                <input type="text" placeholder="Rechercher un service ou un professionnel..." class="bg-transparent w-full p-3 focus:outline-none text-white">
+                <button class="bg-primary px-8 py-3 rounded-xl font-bold hover:bg-orange-600">Rechercher</button>
             </div>
-        </div>
-    </div>
+        </header>
 
-    <main class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="glass-panel p-3">
-            <h3 class="text-center font-bold mb-3 opacity-50 text-sm">INTERFACE CLIENT</h3>
-            <iframe src="client.html" class="app-iframe"></iframe>
-        </div>
-        <div class="glass-panel p-3">
-            <h3 class="text-center font-bold mb-3 opacity-50 text-sm">INTERFACE TECHNICIEN</h3>
-            <iframe src="technicien.html" class="app-iframe"></iframe>
-        </div>
-        <div class="glass-panel p-3">
-            <h3 class="text-center font-bold mb-3 opacity-50 text-sm">CONSOLE ADMIN</h3>
-            <iframe src="admin.html" class="app-iframe"></iframe>
-        </div>
+        <!-- Grille des fonctionnalités clés -->
+        <section class="grid md:grid-cols-3 gap-8 mb-16">
+            <!-- Géolocalisation Avancée -->
+            <div class="bg-secondary p-6 rounded-2xl border border-gray-800">
+                <h3 class="text-xl font-bold mb-2">Intelligence Géospatiale</h3>
+                <p class="text-gray-400 text-sm">Géofencing sécurisé et suivi GPS en temps réel pour vos missions[span_0](start_span)[span_0](end_span).</p>
+            </div>
+            
+            <!-- Réseau Social Pro -->
+            <div class="bg-secondary p-6 rounded-2xl border border-gray-800">
+                <h3 class="text-xl font-bold mb-2">Réseau Social Pro</h3>
+                <p class="text-gray-400 text-sm">Collaborations, portfolio numérique et messagerie sécurisée[span_1](start_span)[span_1](end_span).</p>
+            </div>
+
+            <!-- J-TECH PAY -->
+            <div class="bg-secondary p-6 rounded-2xl border border-gray-800">
+                <h3 class="text-xl font-bold mb-2">J-TECH PAY</h3>
+                <p class="text-gray-400 text-sm">Système Escrow (séquestre) pour des transactions garanties[span_2](start_span)[span_2](end_span).</p>
+            </div>
+        </section>
+
     </main>
-
 </body>
-</html>
-
+    </html>
+                                                                                                                                                            
