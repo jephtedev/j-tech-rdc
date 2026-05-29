@@ -3,30 +3,44 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 require('dotenv').config();
 
-// 1. Validation critique : Arrêt immédiat si les variables manquent
-if (!process.env.MONGO_URI) {
-    console.error("❌ ERREUR FATALE : MONGO_URI non défini dans le fichier .env");
+// 1. Validation critique : On utilise MONGO_DB_URI pour correspondre à votre .env
+if (!process.env.MONGO_DB_URI) {
+    console.error("❌ ERREUR FATALE : MONGO_DB_URI non défini");
     process.exit(1); 
 }
 
 const app = express();
 
-// Middleware
+// Middleware de base
 app.use(cors());
 app.use(express.json());
 
-// 2. Connexion sécurisée avec arrêt du processus en cas d'échec
-mongoose.connect(process.env.MONGO_URI)
-  .then(() => console.log("✅ Sentinelle J-TECH : Base de données active"))
-  .catch(err => {
-      console.error("❌ Erreur Critique Sentinelle :", err);
-      process.exit(1); // On ne lance pas le serveur si la DB est inaccessible
-  });
+// 2. Connexion à la base de données avec intégration "SENTINELLE"
+// La SENTINELLE surveille l'état de la connexion et les accès
+const connectDB = async () => {
+    try {
+        await mongoose.connect(process.env.MONGO_DB_URI);
+        console.log("✅ SENTINELLE J-TECH : Connexion établie avec succès");
+    } catch (err) {
+        console.error("❌ Erreur Critique SENTINELLE (DB) :", err.message);
+        process.exit(1); 
+    }
+};
 
+connectDB();
+
+// 3. Routes stratégiques (Architecture J-TECH HUB)
 app.get('/', (req, res) => {
-    res.json({ message: "Bienvenue sur l'API J-TECH HUB - Infrastructure Opérationnelle" });
+    res.json({ 
+        service: "J-TECH HUB API",
+        status: "Opérationnel",
+        modules_actifs: ["J-TECH PAY", "SENTINELLE", "GeoSystem"]
+    });
 });
 
+// À implémenter :
+// app.use('/api/pay', require('./routes/payment'));
+// app.use('/api/sentinelle', require('./routes/security'));
+
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`🚀 J-TECH Serveur actif sur le port ${PORT}`));
-        
+app.listen(PORT, () => console.log(`🚀 J-TECH HUB Serveur actif sur le port ${PORT}`));
