@@ -1,0 +1,40 @@
+# Configuration de l'environnement J-TECH HUB
+name: J-TECH-HUB-Setup
+version: "1.0"
+
+steps:
+  - name: "Initialisation du projet"
+    command: "npm init -y"
+    description: "Initialise le fichier package.json pour la gestion des dépendances."
+
+  - name: "Installation des dépendances fondamentales"
+    command: "npm install express mongoose cors dotenv"
+    description: "Installe le serveur web (Express), le connecteur DB (Mongoose), la gestion CORS et les variables d'environnement."
+
+  - name: "Configuration des variables d'environnement"
+    action: "create_file"
+    file: ".env"
+    content: |
+      PORT=3000
+      MONGO_DB_URI=votre_url_mongodb_ici
+      APP_NAME=J-TECH_HUB_SENTINELLE
+
+  - name: "Sécurisation du dépôt"
+    action: "create_file"
+    file: ".gitignore"
+    content: |
+      node_modules/
+      .env
+      .DS_Store
+
+  - name: "Déploiement sur Render"
+    description: |
+      1. Connecter le dépôt GitHub sur Render.
+      2. Build command: npm install
+      3. Start command: node server.js
+      4. Ajouter MONGO_DB_URI dans Environment Variables (Render Dashboard).
+
+  - name: "Vérification de la SENTINELLE"
+    command: "node server.js"
+    description: "Lance le serveur pour vérifier la connexion avec la base de données."
+    
